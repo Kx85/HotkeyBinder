@@ -24,6 +24,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	<Version>1.0.0</Version>
+	<AssemblyVersion>1.0.*</AssemblyVersion>
+	<Deterministic>false</Deterministic>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>

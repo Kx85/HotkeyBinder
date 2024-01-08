@@ -20,6 +20,16 @@ namespace HotkeyBinder
         {
             InitializeComponent();
             defaultValues = new Default();
+            this.Text = UpdateTitleWithVersion();
+        }
+
+        private string UpdateTitleWithVersion()
+        {
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            var buildDate = new DateTime(2000, 1, 1)
+            .AddDays(version.Build).AddSeconds(version.Revision * 2);
+
+            return $"HotkeyBinder - v{version} ({buildDate})";
         }
 
         private void Form1_Load(object sender, EventArgs e)
