@@ -24,10 +24,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-	<Version>1.0.0</Version>
-	<AssemblyVersion>1.0.*</AssemblyVersion>
-	<Deterministic>false</Deterministic>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <Deterministic>false</Deterministic>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.cs" />
-    <Compile Include="FileReader.cs" />
-    <Compile Include="FileSaver.cs" />
-    <Compile Include="KeyboardLayout.cs" />
+    <Compile Include="Input\Default.cs" />
+    <Compile Include="IOControl\FileReader.cs" />
+    <Compile Include="IOControl\FileSaver.cs" />
+    <Compile Include="Input\Keys.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

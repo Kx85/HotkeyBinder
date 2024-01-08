@@ -30,9 +30,8 @@
         {
             this.defaultInputButton = new System.Windows.Forms.Button();
             this.uploadInputFileButton = new System.Windows.Forms.Button();
-            this.uploadedInputFilePath = new System.Windows.Forms.TextBox();
-            this.ModifyKeybind = new System.Windows.Forms.Button();
-            this.ResetKeybind = new System.Windows.Forms.Button();
+            this.uploadedInputFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.ResetKeybindButton = new System.Windows.Forms.Button();
             this.keybinds = new System.Windows.Forms.DataGridView();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -64,32 +63,23 @@
             this.uploadInputFileButton.UseVisualStyleBackColor = true;
             this.uploadInputFileButton.Click += new System.EventHandler(this.UploadInputFileButton_Click);
             // 
-            // uploadedInputFilePath
+            // uploadedInputFilePathTextBox
             // 
-            this.uploadedInputFilePath.Enabled = false;
-            this.uploadedInputFilePath.Location = new System.Drawing.Point(28, 15);
-            this.uploadedInputFilePath.Name = "uploadedInputFilePath";
-            this.uploadedInputFilePath.Size = new System.Drawing.Size(342, 20);
-            this.uploadedInputFilePath.TabIndex = 2;
+            this.uploadedInputFilePathTextBox.Enabled = false;
+            this.uploadedInputFilePathTextBox.Location = new System.Drawing.Point(28, 15);
+            this.uploadedInputFilePathTextBox.Name = "uploadedInputFilePath";
+            this.uploadedInputFilePathTextBox.Size = new System.Drawing.Size(342, 20);
+            this.uploadedInputFilePathTextBox.TabIndex = 2;
             // 
-            // ModifyKeybind
+            // ResetKeybindButton
             // 
-            this.ModifyKeybind.Location = new System.Drawing.Point(203, 415);
-            this.ModifyKeybind.Name = "ModifyKeybind";
-            this.ModifyKeybind.Size = new System.Drawing.Size(75, 23);
-            this.ModifyKeybind.TabIndex = 4;
-            this.ModifyKeybind.Text = "Modify";
-            this.ModifyKeybind.UseVisualStyleBackColor = true;
-            // 
-            // ResetKeybind
-            // 
-            this.ResetKeybind.Location = new System.Drawing.Point(285, 414);
-            this.ResetKeybind.Name = "ResetKeybind";
-            this.ResetKeybind.Size = new System.Drawing.Size(75, 23);
-            this.ResetKeybind.TabIndex = 5;
-            this.ResetKeybind.Text = "Reset";
-            this.ResetKeybind.UseVisualStyleBackColor = true;
-            this.ResetKeybind.Click += new System.EventHandler(this.ResetKeybind_Click);
+            this.ResetKeybindButton.Location = new System.Drawing.Point(245, 415);
+            this.ResetKeybindButton.Name = "ResetKeybind";
+            this.ResetKeybindButton.Size = new System.Drawing.Size(75, 23);
+            this.ResetKeybindButton.TabIndex = 5;
+            this.ResetKeybindButton.Text = "Reset";
+            this.ResetKeybindButton.UseVisualStyleBackColor = true;
+            this.ResetKeybindButton.Click += new System.EventHandler(this.ResetKeybind_Click);
             // 
             // keybinds
             // 
@@ -122,6 +112,7 @@
             this.Action.Name = "Action";
             this.Action.ReadOnly = true;
             this.Action.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Action.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Action.Width = 62;
             // 
             // Key
@@ -131,7 +122,7 @@
             this.Key.HeaderText = "Key";
             this.Key.Name = "Key";
             this.Key.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Key.Width = 50;
             // 
             // bShift
@@ -140,7 +131,7 @@
             this.bShift.HeaderText = "bShift";
             this.bShift.Name = "bShift";
             this.bShift.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.bShift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.bShift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bShift.Width = 59;
             // 
             // bCtrl
@@ -148,6 +139,8 @@
             this.bCtrl.Frozen = true;
             this.bCtrl.HeaderText = "bCtrl";
             this.bCtrl.Name = "bCtrl";
+            this.bCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.bCtrl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bCtrl.Width = 59;
             // 
             // bAlt
@@ -155,6 +148,8 @@
             this.bAlt.Frozen = true;
             this.bAlt.HeaderText = "bAlt";
             this.bAlt.Name = "bAlt";
+            this.bAlt.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.bAlt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bAlt.Width = 59;
             // 
             // bCmd
@@ -162,6 +157,8 @@
             this.bCmd.Frozen = true;
             this.bCmd.HeaderText = "bCmd";
             this.bCmd.Name = "bCmd";
+            this.bCmd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.bCmd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bCmd.Width = 59;
             // 
             // saveButton
@@ -172,7 +169,7 @@
             this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // MainForm
             // 
@@ -181,9 +178,8 @@
             this.ClientSize = new System.Drawing.Size(567, 450);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.keybinds);
-            this.Controls.Add(this.ResetKeybind);
-            this.Controls.Add(this.ModifyKeybind);
-            this.Controls.Add(this.uploadedInputFilePath);
+            this.Controls.Add(this.ResetKeybindButton);
+            this.Controls.Add(this.uploadedInputFilePathTextBox);
             this.Controls.Add(this.uploadInputFileButton);
             this.Controls.Add(this.defaultInputButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -202,9 +198,8 @@
 
         private System.Windows.Forms.Button defaultInputButton;
         private System.Windows.Forms.Button uploadInputFileButton;
-        private System.Windows.Forms.TextBox uploadedInputFilePath;
-        private System.Windows.Forms.Button ModifyKeybind;
-        private System.Windows.Forms.Button ResetKeybind;
+        private System.Windows.Forms.TextBox uploadedInputFilePathTextBox;
+        private System.Windows.Forms.Button ResetKeybindButton;
         private System.Windows.Forms.DataGridView keybinds;
         private System.Windows.Forms.DataGridViewTextBoxColumn Action;
         private System.Windows.Forms.DataGridViewComboBoxColumn Key;

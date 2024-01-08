@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotkeyBinder
@@ -40,7 +36,7 @@ namespace HotkeyBinder
         private void DefaultInputButton_Click(object sender, EventArgs e)
         {
             ResetKeybindsView();
-            uploadedInputFilePath.Clear();
+            uploadedInputFilePathTextBox.Clear();
         }
 
         private void UploadInputFileButton_Click(object sender, EventArgs e)
@@ -60,12 +56,12 @@ namespace HotkeyBinder
             {
                 // Open document
                 filepath = dlg.FileName;
-                uploadedInputFilePath.Text = filepath;
+                uploadedInputFilePathTextBox.Text = filepath;
                 UpdateKeybindingsFromFile(filepath);
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.DefaultExt = ".ini";
@@ -76,7 +72,7 @@ namespace HotkeyBinder
             if (result == DialogResult.OK)
             {
                 filepath = dlg.FileName;
-                uploadedInputFilePath.Text = filepath;
+                uploadedInputFilePathTextBox.Text = filepath;
                 SaveKeybindingsToFile(filepath);
             }
         }
@@ -144,7 +140,7 @@ namespace HotkeyBinder
             test.DataSource = allKeys;
             test.Value = allKeys.IndexOf(item.getKey());
             row.Cells.Add(new DataGridViewTextBoxCell() { Value = item.getAction() });
-            row.Cells.Add(new DataGridViewComboBoxCell() { DataSource = allKeys, Value = item.getKey() });
+            row.Cells.Add(new DataGridViewComboBoxCell() { DataSource = allKeys, Value = item.getKey(), ReadOnly = false, ValueType = typeof(Keys) });
             row.Cells.Add(new DataGridViewCheckBoxCell() { Value = item.getShiftModifier() });
             row.Cells.Add(new DataGridViewCheckBoxCell() { Value = item.getCtrlModifier() });
             row.Cells.Add(new DataGridViewCheckBoxCell() { Value = item.getAltModifier() });

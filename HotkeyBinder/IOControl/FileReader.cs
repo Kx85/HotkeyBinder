@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotkeyBinder
 {
@@ -18,18 +16,18 @@ namespace HotkeyBinder
             lines.ToList().ForEach(line => items.Add(ProcessLine(line)));
             items.RemoveAll(item => item is null);
 
-
             return items;
         }
 
         private static Item ProcessLine(string line)
         {
             var match = System.Text.RegularExpressions.Regex.Match(line, regexString);
-            Keys key;
 
-            if (Enum.TryParse<Keys>(match.Groups[6].Value, true, out key)) {
+            if (Enum.TryParse<Keys>(match.Groups[6].Value, true, out Keys key))
+            {
                 return new Item(match.Groups[1].Value, key, Boolean.Parse(match.Groups[2].Value), Boolean.Parse(match.Groups[3].Value), Boolean.Parse(match.Groups[4].Value), Boolean.Parse(match.Groups[5].Value));
             }
+
             return null;
         }
     }

@@ -1,24 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotkeyBinder
 {
-    public class KeyboardLayout
-    {
-        internal static Keys ToKey(string value)
-        {
-            throw new NotImplementedException();
-        }
-        public static bool ExistsKey(String value)
-        {
-            return true;
-        }
-    }
-
-
     public enum Keys
     {
         None,
